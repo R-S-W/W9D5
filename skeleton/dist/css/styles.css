@@ -51,3 +51,54 @@ h1 {
   opacity: 1;
   transform: translateX(0%) scale(1);
 }
+ 
+
+.hidden{
+  display: none;
+}
+
+.welcome{
+  width :200px;
+}
+
+
+
+.clock-holder {
+  color: white;
+  font-size:18px;
+  padding: 5px;
+  border: 1px solid white;
+  display: block;
+  width: 100px;
+  margin-top: 50px;
+  margin-left:50px;
+  float: left;
+  
+
+}
+
+
+
+.drop-down-dog-nav{
+  background: white;
+  padding: 5px;
+  width: 100px;
+  display: block;
+  justify-content: flex-end;
+  float: right;
+  position: relative;
+}
+
+.drop-down-dog-list {
+  position: absolute;
+  background: white;
+  padding: 5px;
+
+
+  
+}
+
+.dog-link a{
+  color: gray;
+  
+}
