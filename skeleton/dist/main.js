@@ -118,7 +118,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _warmup__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./warmup */ \"./src/warmup.js\");\n/* harmony import */ var _clock__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./clock */ \"./src/clock.js\");\n/* harmony import */ var _drop_down__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./drop_down */ \"./src/drop_down.js\");\n\n\n\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _warmup__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./warmup */ \"./src/warmup.js\");\n/* harmony import */ var _clock__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./clock */ \"./src/clock.js\");\n/* harmony import */ var _drop_down__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./drop_down */ \"./src/drop_down.js\");\n/* harmony import */ var _todo_list_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./todo_list.js */ \"./src/todo_list.js\");\n/* harmony import */ var _todo_list_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_todo_list_js__WEBPACK_IMPORTED_MODULE_3__);\n\n\n\n\n\n\n//# sourceURL=webpack:///./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/todo_list.js":
+/*!**************************!*\
+  !*** ./src/todo_list.js ***!
+  \**************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("const todos = [];\nconst list = document.getElementsByClassName('todos')[0];\n\nif(list.children.length === 1){\n    let jarr = JSON.parse(localStorage.getItem('stodos'))\n    jarr.forEach(el => {\n        todos.push(el);\n    });\n    populateList(todos);\n}\n\n\n// const form = getElementsByClassName('add-todo-form');\n\nfunction addTodo(){\n \n    let addTodoInput = document.querySelector(\"input[name='add-todo']\");\n    let todoObj = {value: addTodoInput.value, done: false};\n    todos.push(todoObj);\n    addTodoInput.value = \"\";\n    \n    populateList([todos[todos.length - 1]]);\n    localStorage.setItem('stodos',JSON.stringify(todos));\n};\n\nfunction populateList(todos){\n    // debugger\n    todos.forEach((td)=> {\n        const lb = document.createElement('label');\n        const newString = document.createTextNode(td.value);\n        lb.appendChild(newString);\n\n        const cb = document.createElement('input');\n        cb.type = \"checkbox\";\n        cb.name = td.value;\n        cb.checked = td.done;\n        cb.setAttribute('class', 'cbutton');\n        \n        const li = document.createElement('li');\n        li.append(lb);\n        li.append(cb);\n        list.append(li);\n    });\n};\nconst sbtn = document.querySelector(\"input[value='+ Add Todo']\");\nsbtn.addEventListener('click', e =>{\n    addTodo();\n}) ;\n\n// const cbxs = document.querySelectorAll(\"input[type='checkbox']\");\n// const cbxs = document.getElementsByClassName(\"cbutton\");\n\nlist.addEventListener('click', e =>{\n    for(let i = 0; i < todos.length; i++){\n        if(todos[i].value === e.target.name) {\n            todos[i].done = e.target.checked\n        }\n        localStorage.setItem('stodos',JSON.stringify(todos));\n    }\n});\n\n\nmodule.exports = addTodo;\n\n//# sourceURL=webpack:///./src/todo_list.js?");
 
 /***/ }),
 
