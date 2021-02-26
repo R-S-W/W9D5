@@ -1,4 +1,4 @@
-function debounce(func, wait = 20, immediate = true) {
+export function debounce(func, wait = 20, immediate = true) {
   let timeout;
 
   // This is the function that is actually executed when
@@ -31,4 +31,23 @@ function debounce(func, wait = 20, immediate = true) {
     // Call immediately if you're doing a leading end execution
     if (callNow) func.apply(context, args);
   };
+
+
+
 }
+
+
+
+debounce( 
+  ()=>{
+    window.addEventListener('scroll', (e) => {
+      console.log('scrolling');
+    })
+  },
+ 500
+);
+
+// debounce(
+//     window.addEventListener('scroll', (e) => {console.log('scrolling');} ),
+//   'scroll', (e) => { console.log('scrolling'); } 
+// )

@@ -2,11 +2,14 @@ const todos = [];
 const list = document.getElementsByClassName('todos')[0];
 
 if(list.children.length === 1){
-    let jarr = JSON.parse(localStorage.getItem('stodos'))
-    jarr.forEach(el => {
-        todos.push(el);
-    });
-    populateList(todos);
+    let jarr = JSON.parse(localStorage.getItem('stodos'));    
+    if (jarr){
+        jarr.forEach(el => {
+            todos.push(el);
+        });
+        populateList(todos);
+    }
+    
 }
 
 
